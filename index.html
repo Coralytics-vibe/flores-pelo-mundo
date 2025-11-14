@@ -1,0 +1,103 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+  <head>
+    <meta charset="UTF--8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flores pelo Mundo - Viaje Muito Mais Gastando Bem Menos</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+      body {
+        font-family: 'Inter', sans-serif;
+      }
+      h1, h2, h3 {
+        font-family: 'Poppins', sans-serif;
+      }
+      @keyframes slide-in-up {
+        from {
+          transform: translateY(110%);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+      .animate-slide-in-up {
+        animation-name: slide-in-up;
+        animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        animation-fill-mode: both;
+      }
+      @keyframes slide-out-up {
+        from {
+          transform: translateY(0);
+          opacity: 1;
+        }
+        to {
+          transform: translateY(-110%);
+          opacity: 0;
+        }
+      }
+      .animate-slide-out-up {
+        animation-name: slide-out-up;
+        animation-timing-function: cubic-bezier(0.55, 0.085, 0.68, 0.53);
+        animation-fill-mode: both;
+      }
+
+      @keyframes scroll-left {
+        from { transform: translateX(0); }
+        to { transform: translateX(-100%); }
+      }
+      .animate-scroll-left {
+        animation: scroll-left 40s linear infinite;
+      }
+      
+      .card-spotlight {
+        position: relative;
+        border-radius: 1.5rem;
+        border: 1px solid #222;
+        background-color: #111;
+        overflow: hidden;
+        --mouse-x: 50%;
+        --mouse-y: 50%;
+        --spotlight-color: rgba(255, 255, 255, 0.05);
+      }
+
+      .card-spotlight::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(circle at var(--mouse-x) var(--mouse-y), var(--spotlight-color), transparent 80%);
+        opacity: 0;
+        transition: opacity 0.5s ease;
+        pointer-events: none;
+      }
+
+      .card-spotlight:hover::before,
+      .card-spotlight:focus-within::before {
+        opacity: 0.6;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
