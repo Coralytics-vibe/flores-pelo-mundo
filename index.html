@@ -84,6 +84,16 @@
       .card-spotlight:focus-within::before {
         opacity: 0.6;
       }
+
+      @keyframes fade-in {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+      .animate-fade-in {
+        animation-name: fade-in;
+        animation-timing-function: ease-in-out;
+        animation-fill-mode: both;
+      }
     </style>
   <script type="importmap">
 {
