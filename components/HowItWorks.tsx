@@ -106,11 +106,11 @@ const HowItWorks: React.FC = () => {
 
   return (
     <>
-      <section id="como-funciona" className="py-20 bg-gray-900">
+      <section id="como-funciona" className="py-20 bg-gray-50">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-white">Como Funciona a Nossa Comunidade</h2>
-            <p className="max-w-2xl mx-auto text-lg text-gray-300 mt-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900">Como Funciona a Nossa Comunidade</h2>
+            <p className="max-w-2xl mx-auto text-lg text-gray-600 mt-4">
               Organizamos tudo em 5 grupos de WhatsApp para você ter acesso fácil e rápido apenas ao que te interessa.
             </p>
           </div>
