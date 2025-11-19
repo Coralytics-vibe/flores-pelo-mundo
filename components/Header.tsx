@@ -23,6 +23,7 @@ const Header: React.FC = () => {
   const navLinks = [
     { href: '#problema', text: 'Passagens Baratas' },
     { href: '#como-funciona', text: 'Como Funciona' },
+    { href: '#depoimentos', text: 'Depoimentos' },
     { href: '#diferenciais', text: 'Vantagens' },
     { href: '#planos', text: 'Planos' },
     { href: '#faq', text: 'FAQ' },

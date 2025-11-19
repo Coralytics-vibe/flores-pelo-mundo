@@ -28,7 +28,7 @@ const plans = [
     period: "12x",
     fullPrice: "ou R$ 399 com desconto",
     buttonText: "QUERO VIAJAR BARATO!",
-    href: "#",
+    href: "https://mpago.la/1uWW9fs",
     isPopular: true,
   },
   {
@@ -38,7 +38,7 @@ const plans = [
     period: "6x",
     fullPrice: "ou R$ 265 com desconto",
     buttonText: "QUERO VIAJAR BARATO!",
-    href: "#",
+    href: "https://mpago.la/1XkgC55",
     isPopular: false,
   },
   {
@@ -48,7 +48,7 @@ const plans = [
     period: "12X",
     fullPrice: "ou R$ 197 com desconto",
     buttonText: "QUERO VIAJAR BARATO!",
-    href: "#",
+    href: "https://mpago.la/15j2ukn",
     isPopular: false,
   },
 ];
@@ -98,6 +98,8 @@ const Pricing: React.FC = () => {
               <div className="mt-10">
                 <a 
                   href={plan.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="block w-full text-center rounded-lg px-6 py-4 text-lg font-bold uppercase tracking-wider transition-colors duration-200 bg-[#4f2ac9] hover:bg-[#4123b3]"
                 >
                   {plan.buttonText}
@@ -108,7 +110,7 @@ const Pricing: React.FC = () => {
         </div>
 
         <div className="mt-20 text-center">
-            <p className="text-xl font-semibold text-gray-800 max-w-3xl mx-auto">
+            <p className="text-2xl font-semibold text-gray-800 max-w-3xl mx-auto">
                 Você está a um passo de nunca mais precisar procurar promoções de passagens!
             </p>
             <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16 mt-8 text-[#623CEA]">
