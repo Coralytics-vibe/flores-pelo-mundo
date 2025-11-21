@@ -5,7 +5,7 @@ const features = [
   {
     title: 'Balcão de Milhas',
     description: 'Não tem milhas? Sem problemas! Compre passagens de outros membros com segurança e economia.',
-    imageSrc: 'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?q=80&w=2070&auto=format&fit=crop'
+    imageSrc: '/images/balcao de milhas - imagem.webp'
   },
   {
     title: 'Alertas Temáticos',
@@ -66,45 +66,45 @@ const Features: React.FC = () => {
     <section id="diferenciais" className="py-20 lg:py-32 bg-gradient-to-br from-white to-gray-50/50">
       <div className="container mx-auto px-6">
         <div className="text-left max-w-3xl mb-16">
-            <h2 className="text-4xl lg:text-5xl font-extrabold text-gray-900 !leading-tight">
-                Vantagens que só a nossa <span className="text-[#623CEA]">comunidade</span> oferece
-            </h2>
-            <p className="text-lg text-gray-600 mt-4">
-                Vamos muito além de simples alertas. Oferecemos um ecossistema completo para você viajar mais e melhor.
-            </p>
+          <h2 className="text-4xl lg:text-5xl font-extrabold text-gray-900 !leading-tight">
+            Vantagens que só a nossa <span className="text-[#623CEA]">comunidade</span> oferece
+          </h2>
+          <p className="text-lg text-gray-600 mt-4">
+            Vamos muito além de simples alertas. Oferecemos um ecossistema completo para você viajar mais e melhor.
+          </p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-start">
-            {/* Left side: Accordion */}
-            <div>
-                {features.map((feature, index) => (
-                <FeatureItem
-                    key={index}
-                    feature={feature}
-                    isOpen={activeIndex === index}
-                    onClick={() => setActiveIndex(index)}
-                />
-                ))}
-            </div>
+          {/* Left side: Accordion */}
+          <div>
+            {features.map((feature, index) => (
+              <FeatureItem
+                key={index}
+                feature={feature}
+                isOpen={activeIndex === index}
+                onClick={() => setActiveIndex(index)}
+              />
+            ))}
+          </div>
 
-            {/* Right side: Image */}
-            <div>
-                 <div className="relative h-96 lg:h-[550px] w-full sticky top-28">
-                    {features.map((feature, index) => (
-                        <div
-                            key={feature.imageSrc}
-                            className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${activeIndex === index ? 'opacity-100' : 'opacity-0'}`}
-                             aria-hidden={activeIndex !== index}
-                        >
-                            <img
-                                src={feature.imageSrc}
-                                alt={feature.title}
-                                className="w-full h-full object-cover rounded-2xl shadow-2xl"
-                            />
-                        </div>
-                    ))}
+          {/* Right side: Image */}
+          <div>
+            <div className="relative h-96 lg:h-[550px] w-full sticky top-28">
+              {features.map((feature, index) => (
+                <div
+                  key={feature.imageSrc}
+                  className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${activeIndex === index ? 'opacity-100' : 'opacity-0'}`}
+                  aria-hidden={activeIndex !== index}
+                >
+                  <img
+                    src={feature.imageSrc}
+                    alt={feature.title}
+                    className="w-full h-full object-cover rounded-2xl shadow-2xl"
+                  />
                 </div>
+              ))}
             </div>
+          </div>
         </div>
       </div>
     </section>

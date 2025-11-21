@@ -2,10 +2,10 @@
 import React, { useState, useEffect } from 'react';
 import { WhatsAppIcon } from './icons/WhatsAppIcon';
 
-const ArrowUpIcon: React.FC<{className?: string}> = ({ className }) => (
-    <svg xmlns="http://www.w3.org/2000/svg" className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
-      <path strokeLinecap="round" strokeLinejoin="round" d="M5 15l7-7 7 7" />
-    </svg>
+const ArrowUpIcon: React.FC<{ className?: string }> = ({ className }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+    <path strokeLinecap="round" strokeLinejoin="round" d="M5 15l7-7 7 7" />
+  </svg>
 );
 
 const FloatingWhatsappButton: React.FC = () => {
@@ -37,7 +37,7 @@ const FloatingWhatsappButton: React.FC = () => {
 
   return (
     <div className="fixed bottom-6 right-6 z-40 flex flex-col items-center gap-3">
-       {/* Back to top button */}
+      {/* Back to top button */}
       <button
         type="button"
         onClick={scrollToTop}
@@ -49,7 +49,7 @@ const FloatingWhatsappButton: React.FC = () => {
 
       {/* WhatsApp button */}
       <a
-        href="https://wa.me/5561998936193"
+        href="https://api.whatsapp.com/send?phone=5561998936193&text=Oi!%20Quero%20tirar%20d%C3%BAvidas%20sobre%20a%20comunidade%20%F0%9F%92%90Flores%20pelo%20mundo%20%F0%9F%8C%8E!"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Fale conosco no WhatsApp"
