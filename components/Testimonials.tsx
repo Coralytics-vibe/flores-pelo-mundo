@@ -1,35 +1,92 @@
 import React from 'react';
 
+// List of all uploaded images
+const testimonialImages = [
+  "11.webp", "12.webp", "13.webp", "14.webp", "15.webp",
+  "16.webp", "17.webp", "18.webp", "19.webp", "2.webp",
+  "21.webp", "22.webp", "23.webp", "25.webp", "26.webp",
+  "27.webp", "28.webp", "3.webp", "31.webp", "32.webp",
+  "33.webp", "34.webp", "36.webp", "37.webp", "38.webp",
+  "39.webp", "4.webp", "40.webp", "41.webp", "43.webp",
+  "44.webp", "45.webp", "47.webp", "48.webp", "49.webp",
+  "5.webp", "6.webp", "7.webp", "8.webp", "9.webp"
+];
+
+// Split images into 2 rows for the marquee
+const midPoint = Math.ceil(testimonialImages.length / 2);
+const row1 = testimonialImages.slice(0, midPoint);
+const row2 = testimonialImages.slice(midPoint);
+
+const MarqueeRow: React.FC<{ images: string[]; direction?: 'left' | 'right'; speed?: number }> = ({
+  images,
+  direction = 'left',
+  speed = 40
+}) => {
+  return (
+    <div className="relative flex overflow-hidden py-4 group">
+      <div
+        className={`flex gap-6 animate-marquee ${direction === 'right' ? 'animate-marquee-reverse' : ''} group-hover:[animation-play-state:paused]`}
+        style={{ animationDuration: `${speed}s` }}
+      >
+        {/* Duplicate the set twice to ensure seamless infinite scrolling */}
+        {[...images, ...images, ...images].map((img, index) => (
+          <div
+            key={`${img}-${index}`}
+            className="relative flex-shrink-0 w-64 md:w-80 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 hover:z-10 cursor-pointer bg-white border border-gray-100"
+          >
+            <img
+              src={`/images/${img}`}
+              alt="Depoimento de viajante"
+              className="w-full h-auto object-contain"
+              loading="lazy"
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
 const Testimonials: React.FC = () => {
   return (
-    <section id="depoimentos" className="py-20 lg:py-32 bg-gray-50">
-      <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-extrabold text-gray-900 !leading-tight">
-            O que nossos <span className="text-[#623CEA]">viajantes</span> dizem
+    <section id="depoimentos" className="py-20 lg:py-32 bg-gray-50 overflow-hidden">
+      <style>{`
+        @keyframes marquee {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-100%); }
+        }
+        .animate-marquee {
+          animation: marquee linear infinite;
+        }
+        .animate-marquee-reverse {
+          animation-direction: reverse;
+        }
+      `}</style>
+
+      <div className="container mx-auto px-6 mb-12">
+        <div className="text-center">
+          <span className="text-[#623CEA] font-semibold tracking-wider uppercase text-sm">Wall of Love</span>
+          <h2 className="text-4xl lg:text-5xl font-extrabold text-gray-900 mt-2 !leading-tight">
+            O que dizem nossos <span className="text-[#623CEA]">viajantes</span>
           </h2>
-          <p className="mt-4 text-lg md:text-xl text-gray-700 leading-relaxed max-w-3xl mx-auto">
-            A maior recompensa é ver nossos membros realizando sonhos e viajando pelo mundo.
+          <p className="mt-4 text-lg md:text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto">
+            Junte-se a milhares de pessoas que já estão explorando o mundo com a gente.
           </p>
         </div>
-        
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-          {Array.from({ length: 6 }).map((_, index) => (
-            <div key={index} className="bg-gray-200 rounded-xl shadow-lg overflow-hidden transform hover:scale-[1.03] transition-transform duration-300 aspect-[9/16] flex items-center justify-center p-4">
-              <div className="text-center">
-                <svg className="mx-auto h-12 w-12 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                </svg>
-                <p className="mt-2 text-sm font-semibold text-gray-500">
-                  Espaço para depoimento {index + 1}
-                </p>
-                <p className="text-xs text-gray-400">
-                  (Imagem será inserida aqui)
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
+      </div>
+
+      <div className="flex flex-col gap-4">
+        {/* Row 1 - Moves Left */}
+        <MarqueeRow images={row1} direction="left" speed={60} />
+
+        {/* Row 2 - Moves Right */}
+        <MarqueeRow images={row2} direction="right" speed={70} />
+      </div>
+
+      <div className="container mx-auto px-6 mt-12 text-center">
+        <p className="text-gray-500 text-sm">
+          *Imagens reais enviadas por membros da nossa comunidade.
+        </p>
       </div>
     </section>
   );
