@@ -10,7 +10,7 @@ const features = [
   {
     title: 'Alertas Temáticos',
     description: 'Promoções especiais para férias escolares, feriados prolongados e escapadas de final de semana.',
-    imageSrc: 'https://images.unsplash.com/photo-1499678329028-101435549a4e?q=80&w=2070&auto=format&fit=crop'
+    imageSrc: '/images/alertas-personalizados.png'
   },
   {
     title: 'Networking de Viajantes',
@@ -25,7 +25,7 @@ const features = [
   {
     title: 'Garantia de 7 Dias',
     description: 'Entre, explore e se não for para você, peça seu dinheiro de volta. Simples assim. Risco zero!',
-    imageSrc: 'https://images.unsplash.com/photo-1563911302283-d2bc129e7570?q=80&w=1935&auto=format&fit=crop'
+    imageSrc: '/images/garantia-7-dias.png'
   }
 ];
 
