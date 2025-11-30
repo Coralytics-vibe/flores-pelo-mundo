@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { MenuIcon } from './icons/MenuIcon';
 import { XIcon } from './icons/XIcon';
 
-const LogoIcon: React.FC<{className?: string}> = ({ className }) => (
-    <svg xmlns="http://www.w3.org/2000/svg" className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M5 12C7 9, 17 9, 19 12" />
-    </svg>
+const LogoIcon: React.FC<{ className?: string }> = ({ className }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+    <path strokeLinecap="round" strokeLinejoin="round" d="M5 12C7 9, 17 9, 19 12" />
+  </svg>
 );
 
 const Header: React.FC = () => {
@@ -36,7 +36,7 @@ const Header: React.FC = () => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
       return;
     }
-    
+
     const element = document.querySelector(targetId);
     if (element) {
       const headerOffset = 80; // Approximate header height for correct positioning
@@ -67,8 +67,8 @@ const Header: React.FC = () => {
           ))}
         </nav>
 
-        <a href="#planos" onClick={(e) => handleNavClick(e, '#planos')} className="hidden md:inline-block bg-[#F79824] text-white font-bold py-2 px-5 rounded-full hover:bg-[#E88C1A] transition-all shadow-sm hover:shadow-md">
-          Quero Viajar Mais Barato
+        <a href="#problema" onClick={(e) => handleNavClick(e, '#problema')} className="hidden md:inline-block bg-[#F79824] text-white font-bold py-2 px-5 rounded-full hover:bg-[#E88C1A] transition-all shadow-sm hover:shadow-md">
+          Saber mais
         </a>
 
         <div className="md:hidden">
@@ -77,7 +77,7 @@ const Header: React.FC = () => {
           </button>
         </div>
       </div>
-      
+
       {/* Mobile Menu */}
       <div className={`md:hidden ${isOpen ? 'block' : 'hidden'} bg-white absolute top-full left-0 right-0 shadow-lg`}>
         <div className="flex flex-col items-center space-y-4 p-6">
@@ -86,8 +86,8 @@ const Header: React.FC = () => {
               {link.text}
             </a>
           ))}
-          <a href="#planos" onClick={(e) => { handleNavClick(e, '#planos'); setIsOpen(false); }} className="w-full text-center bg-[#F79824] text-white font-bold py-3 px-6 rounded-full hover:bg-[#E88C1A] transition-all">
-            Quero Viajar Mais Barato
+          <a href="#problema" onClick={(e) => { handleNavClick(e, '#problema'); setIsOpen(false); }} className="w-full text-center bg-[#F79824] text-white font-bold py-3 px-6 rounded-full hover:bg-[#E88C1A] transition-all">
+            Saber mais
           </a>
         </div>
       </div>

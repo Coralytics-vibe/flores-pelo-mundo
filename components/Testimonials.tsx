@@ -77,17 +77,13 @@ const Testimonials: React.FC = () => {
 
       <div className="flex flex-col gap-4">
         {/* Row 1 - Moves Left */}
-        <MarqueeRow images={row1} direction="left" speed={60} />
+        <MarqueeRow images={row1} direction="left" speed={120} />
 
         {/* Row 2 - Moves Right */}
-        <MarqueeRow images={row2} direction="right" speed={70} />
+        <MarqueeRow images={row2} direction="right" speed={140} />
       </div>
 
-      <div className="container mx-auto px-6 mt-12 text-center">
-        <p className="text-gray-500 text-sm">
-          *Imagens reais enviadas por membros da nossa comunidade.
-        </p>
-      </div>
+
     </section>
   );
 };

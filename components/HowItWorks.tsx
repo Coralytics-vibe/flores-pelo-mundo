@@ -22,8 +22,8 @@ const VideoModal: React.FC<{ videoId: string | null; onClose: () => void; }> = (
   if (!videoId) return null;
 
   return (
-    <div 
-      className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-[100] animate-fade-in" 
+    <div
+      className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-[100] animate-fade-in"
       onClick={onClose}
       role="dialog"
       aria-modal="true"
@@ -32,8 +32,8 @@ const VideoModal: React.FC<{ videoId: string | null; onClose: () => void; }> = (
     >
       <div className="relative w-full max-w-3xl aspect-video bg-black rounded-lg shadow-2xl" onClick={(e) => e.stopPropagation()}>
         <h2 id="video-modal-title" className="sr-only">Player de vídeo</h2>
-        <button 
-          onClick={onClose} 
+        <button
+          onClick={onClose}
           className="absolute -top-3 -right-3 text-white bg-gray-800 rounded-full w-10 h-10 flex items-center justify-center text-2xl z-10 hover:bg-gray-700 transition-colors"
           aria-label="Fechar modal"
         >
@@ -60,8 +60,8 @@ const HowItWorks: React.FC = () => {
   const groups = [
     {
       icon: <WhatsAppIcon className="w-10 h-10" />,
-      title: 'Avisos Gerais',
-      description: 'Onde centralizamos todas as informações importantes, regras e novidades da comunidade.',
+      title: 'Avisos',
+      description: 'Aqui você fica sempre por dentro das transferências com bônus, compras com desconto e tudo o que faz suas milhas se multiplicarem!',
       videoId: 'C3Pm-Ub3U5o'
     },
     {
@@ -79,23 +79,23 @@ const HowItWorks: React.FC = () => {
     {
       icon: <UsersIcon className="w-10 h-10" />,
       title: 'Networking BSB',
-      description: 'Conecte-se com outros viajantes, troque dicas, encontre companhias para suas aventuras.',
+      description: 'No maior grupo de networking de viajantes da nossa cidade você pode trocar dicas, tirar dúvidas e aprender muito sobre o universo das milhas e viagens.',
       videoId: 'Zt3IiYFMZfM'
     },
     {
       icon: <TagIcon className="w-10 h-10" />,
       title: 'Balcão de Milhas',
-      description: 'Um espaço exclusivo para comprar e vender milhas e passagens com segurança entre os membros.',
+      description: 'Espaço exclusivo para os participantes comprarem passagens baratas, mesmo sem milhas, com rapidez e segurança.',
       videoId: 'rfsguHGOMBk'
     }
   ];
 
-  const CardContent: React.FC<{group: typeof groups[0], iconColorClass: string, onPlay: (videoId: string) => void}> = ({ group, iconColorClass, onPlay }) => (
+  const CardContent: React.FC<{ group: typeof groups[0], iconColorClass: string, onPlay: (videoId: string) => void }> = ({ group, iconColorClass, onPlay }) => (
     <>
       <div className={`mb-4 ${iconColorClass}`}>{group.icon}</div>
       <h3 className="text-xl font-bold text-white mb-2">{group.title}</h3>
       <p className="text-gray-400 flex-grow">{group.description}</p>
-      <button 
+      <button
         onClick={() => onPlay(group.videoId)}
         className="mt-6 w-full bg-white/10 text-white font-semibold py-2 px-4 rounded-lg hover:bg-white/20 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-900 focus:ring-white"
       >
@@ -115,14 +115,14 @@ const HowItWorks: React.FC = () => {
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="lg:col-span-1 md:col-span-2"> 
+            <div className="lg:col-span-1 md:col-span-2">
               <SpotlightCard className="p-8 h-full flex flex-col" spotlightColor="rgba(247, 152, 36, 0.15)">
-                <CardContent group={groups[0]} iconColorClass="text-[#F79824]" onPlay={setActiveVideoId}/>
+                <CardContent group={groups[0]} iconColorClass="text-[#F79824]" onPlay={setActiveVideoId} />
               </SpotlightCard>
             </div>
             {groups.slice(1).map((group, index) => (
               <SpotlightCard key={index} className="p-8 h-full flex flex-col" spotlightColor="rgba(75, 179, 253, 0.1)">
-                <CardContent group={group} iconColorClass="text-[#4BB3FD]" onPlay={setActiveVideoId}/>
+                <CardContent group={group} iconColorClass="text-[#4BB3FD]" onPlay={setActiveVideoId} />
               </SpotlightCard>
             ))}
           </div>

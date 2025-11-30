@@ -20,29 +20,28 @@ const Hero: React.FC = () => {
   }, []);
 
   return (
-    <section 
-      id="hero" 
+    <section
+      id="hero"
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
       {/* Background Images Slideshow */}
       {images.map((src, index) => (
         <div
           key={src}
-          className={`absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ease-in-out ${
-            index === currentImageIndex ? 'opacity-100' : 'opacity-0'
-          }`}
+          className={`absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ease-in-out ${index === currentImageIndex ? 'opacity-100' : 'opacity-0'
+            }`}
           style={{ backgroundImage: `url('${src}')` }}
           aria-hidden="true"
           role="presentation"
         />
       ))}
-      
+
       <div className="absolute inset-0 bg-black/50"></div>
-      
+
       <div className="relative z-10 container mx-auto px-6 text-center text-white">
         <h1 className="text-5xl sm:text-6xl md:text-7xl font-extrabold leading-tight mb-4">
           Viaje muito mais,{' '}
-          <span 
+          <span
             className="bg-[#F79824] text-white px-4 py-1 md:px-6 md:py-2 rounded-xl inline-block"
           >
             Pagando Barato
@@ -51,11 +50,11 @@ const Hero: React.FC = () => {
         <p className="text-lg md:text-xl max-w-3xl mx-auto mb-8 text-gray-200">
           Receba diariamente as passagens mais baratas saindo de Brasília e São Paulo para o Brasil e o mundo, direto no seu WhatsApp.
         </p>
-        <a 
-          href="#planos" 
+        <a
+          href="#problema"
           className="bg-[#F79824] text-white font-bold text-lg py-4 px-10 rounded-full hover:bg-[#E88C1A] transition-all transform hover:scale-105 shadow-lg hover:shadow-[#F79824]/50"
         >
-          Quero Viajar Mais Barato
+          Saber mais
         </a>
       </div>
     </section>
