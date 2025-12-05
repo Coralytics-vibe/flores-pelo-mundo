@@ -6,7 +6,7 @@ import Problem from './components/Problem';
 import Testimonials from './components/Testimonials';
 import Companies from './components/Companies';
 import HowItWorks from './components/HowItWorks';
-import Features from './components/Features';
+
 import Stats from './components/Stats';
 import Pricing from './components/Pricing';
 import Faq from './components/Faq';
@@ -24,7 +24,7 @@ const App: React.FC = () => {
         <Testimonials />
         <Companies />
         <HowItWorks />
-        <Features />
+
         <Stats />
         <Pricing />
         <Faq />

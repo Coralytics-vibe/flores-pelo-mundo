@@ -3,8 +3,8 @@ import React from 'react';
 // A generic map pin icon
 const MapPinIcon: React.FC = () => (
   <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" stroke="white" strokeOpacity="0.5" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-    <path d="M12 13a3 3 0 100-6 3 3 0 000 6z" stroke="white" strokeOpacity="0.5" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" stroke="white" strokeOpacity="0.5" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+    <path d="M12 13a3 3 0 100-6 3 3 0 000 6z" stroke="white" strokeOpacity="0.5" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
   </svg>
 );
 
@@ -28,7 +28,7 @@ const Companies: React.FC = () => {
   ];
 
   return (
-    <div className="bg-[#623CEA]">
+    <div className="bg-[#246BCE]">
       <div className="container mx-auto flex flex-col items-center py-12">
         <p className="text-center text-white/90 font-medium mb-8">
           Com alerta de diversos lugares do Brasil e do Mundo
