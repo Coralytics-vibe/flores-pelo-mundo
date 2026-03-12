@@ -24,9 +24,9 @@ const Hero: React.FC = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const data = await client.request<{ heroSections: HeroData[] }>(HERO_QUERY);
-        if (data.heroSections && data.heroSections.length > 0) {
-          setHeroData(data.heroSections[0]);
+        const data = await client.request<{ bannerHomes: HeroData[] }>(HERO_QUERY);
+        if (data.bannerHomes && data.bannerHomes.length > 0) {
+          setHeroData(data.bannerHomes[0]);
         }
       } catch (error) {
         console.error('Error fetching hero data:', error);
