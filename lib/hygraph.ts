@@ -1,12 +1,17 @@
 import { GraphQLClient, gql } from 'graphql-request';
 
 const hygraphUrl = import.meta.env.VITE_HYGRAPH_URL;
+const hygraphToken = import.meta.env.VITE_HYGRAPH_TOKEN;
 
-export const client = new GraphQLClient(hygraphUrl || '');
+export const client = new GraphQLClient(hygraphUrl || '', {
+  headers: {
+    Authorization: `Bearer ${hygraphToken}`,
+  },
+});
 
 export const HERO_QUERY = gql`
   query GetHero {
-    heroSections(first: 1) {
+    bannerHomes(first: 1) {
       title
       subtitle
       ctaText
