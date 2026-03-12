@@ -24,7 +24,6 @@ const Header: React.FC = () => {
     { href: '#problema', text: 'Passagens Baratas' },
     { href: '#como-funciona', text: 'Como Funciona' },
     { href: '#depoimentos', text: 'Depoimentos' },
-    { href: '#diferenciais', text: 'Vantagens' },
     { href: '#faq', text: 'FAQ' },
     { href: '#sobre', text: 'Sobre' },
   ];
