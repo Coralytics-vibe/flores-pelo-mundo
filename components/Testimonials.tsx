@@ -89,9 +89,9 @@ const Testimonials: React.FC = () => {
 
       <div className="container mx-auto px-6 mb-12">
         <div className="text-center">
-          <span className="text-[#623CEA] font-semibold tracking-wider uppercase text-sm">Wall of Love</span>
+          <span className="text-[#246BCE] font-semibold tracking-wider uppercase text-sm">Wall of Love</span>
           <h2 className="text-4xl lg:text-5xl font-extrabold text-gray-900 mt-2 !leading-tight">
-            O que dizem nossos <span className="text-[#623CEA]">viajantes</span>
+            O que dizem nossos <span className="text-[#246BCE]">viajantes</span>
           </h2>
           <p className="mt-4 text-lg md:text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto">
             Junte-se a milhares de pessoas que já estão explorando o mundo com a gente.

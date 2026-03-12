@@ -34,7 +34,7 @@ const Problem: React.FC = () => {
                 </div>
               </div>
               
-              <div className="p-3 rounded-xl bg-[#3A255A] text-white w-fit max-w-[85%] rounded-bl-sm">
+              <div className="p-3 rounded-xl bg-[#1E3A5F] text-white w-fit max-w-[85%] rounded-bl-sm">
                 <p className="text-sm">Perfect! Sending it over. ✨</p>
               </div>
             </div>
