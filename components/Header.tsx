@@ -25,7 +25,6 @@ const Header: React.FC = () => {
     { href: '#como-funciona', text: 'Como Funciona' },
     { href: '#depoimentos', text: 'Depoimentos' },
     { href: '#diferenciais', text: 'Vantagens' },
-    { href: '#planos', text: 'Planos' },
     { href: '#faq', text: 'FAQ' },
     { href: '#sobre', text: 'Sobre' },
   ];
@@ -54,14 +53,14 @@ const Header: React.FC = () => {
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/95 shadow-md backdrop-blur-sm' : 'bg-transparent'}`}>
       <div className="container mx-auto px-6 py-4 flex justify-between items-center">
-        <a href="#" onClick={(e) => handleNavClick(e, '#')} className={`flex items-center gap-2 text-xl font-bold transition-colors ${isScrolled ? 'text-[#623CEA]' : 'text-white'}`}>
+        <a href="#" onClick={(e) => handleNavClick(e, '#')} className={`flex items-center gap-2 text-xl font-bold transition-colors ${isScrolled ? 'text-[#246BCE]' : 'text-white'}`}>
           <LogoIcon className="w-8 h-8" />
           <span>Flores pelo Mundo</span>
         </a>
 
         <nav className="hidden md:flex items-center space-x-6">
           {navLinks.map((link) => (
-            <a key={link.href} href={link.href} onClick={(e) => handleNavClick(e, link.href)} className={`transition-colors font-medium ${isScrolled ? 'text-gray-600 hover:text-[#623CEA]' : 'text-white hover:text-white/80'}`}>
+            <a key={link.href} href={link.href} onClick={(e) => handleNavClick(e, link.href)} className={`transition-colors font-medium ${isScrolled ? 'text-gray-600 hover:text-[#246BCE]' : 'text-white hover:text-white/80'}`}>
               {link.text}
             </a>
           ))}

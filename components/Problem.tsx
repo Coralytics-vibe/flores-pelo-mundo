@@ -19,7 +19,7 @@ const Problem: React.FC = () => {
 
             {/* Messages */}
             <div className="mt-8 space-y-4">
-              <div className="p-3 rounded-xl bg-[#3A255A] text-white w-fit max-w-[85%] rounded-bl-sm">
+              <div className="p-3 rounded-xl bg-[#1E3A5F] text-white w-fit max-w-[85%] rounded-bl-sm">
                 <p className="text-sm">I just saw Perry's question on the latest presentation. Here's an updated copy! 💪</p>
               </div>
 
@@ -57,7 +57,7 @@ const Problem: React.FC = () => {
         {/* Right Column - Text */}
         <div className="text-left">
            <h2 className="text-4xl lg:text-5xl font-extrabold text-gray-900 !leading-tight">
-                A comunidade de viagens Flores pelo Mundo te entrega as <span className="text-[#623CEA]">passagens mais baratas</span> que você já viu.
+                A comunidade de viagens Flores pelo Mundo te entrega as <span className="text-[#246BCE]">passagens mais baratas</span> que você já viu.
             </h2>
             <p className="mt-6 text-lg md:text-xl text-gray-700 leading-relaxed">
                 Enquanto você ainda paga caro para viajar, <strong className="font-bold text-gray-900">mais de 1.800 viajantes</strong> já foram transformados pela nossa comunidade e descobriram que dá pra <strong className="font-bold text-gray-900 uppercase">VOAR MUITO MAIS</strong>, gastando bem menos.

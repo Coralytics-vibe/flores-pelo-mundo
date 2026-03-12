@@ -61,7 +61,7 @@ const guarantees = [
 
 const Pricing: React.FC = () => {
   return (
-    <section id="planos" className="py-20 bg-[#EFE9F4]">
+    <section id="planos" className="py-20 bg-[#EBF1FA]">
       <div className="container mx-auto px-6">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-800">Planos de assinatura</h2>
@@ -74,7 +74,7 @@ const Pricing: React.FC = () => {
           {plans.map((plan, index) => (
             <div
               key={index}
-              className={`relative bg-[#623CEA] text-white rounded-xl shadow-lg p-8 flex flex-col h-full text-center transition-transform duration-300
+              className={`relative bg-[#246BCE] text-white rounded-xl shadow-lg p-8 flex flex-col h-full text-center transition-transform duration-300
               ${plan.isPopular ? 'lg:scale-105 border-4 border-[#F79824]' : 'border-4 border-transparent'}`}
             >
               {plan.isPopular && (
@@ -100,7 +100,7 @@ const Pricing: React.FC = () => {
                   href={plan.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block w-full text-center rounded-lg px-6 py-4 text-lg font-bold uppercase tracking-wider transition-colors duration-200 bg-[#4f2ac9] hover:bg-[#4123b3]"
+                  className="block w-full text-center rounded-lg px-6 py-4 text-lg font-bold uppercase tracking-wider transition-colors duration-200 bg-[#1D56A5] hover:bg-[#164280]"
                 >
                   {plan.buttonText}
                 </a>
@@ -113,7 +113,7 @@ const Pricing: React.FC = () => {
           <p className="text-2xl font-semibold text-gray-800 max-w-3xl mx-auto">
             Você está a um passo de nunca mais precisar procurar promoções de passagens!
           </p>
-          <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16 mt-8 text-[#623CEA]">
+          <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16 mt-8 text-[#246BCE]">
             {guarantees.map((item, index) => (
               <div key={index} className="flex items-center gap-3">
                 {item.icon}

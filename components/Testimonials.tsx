@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { client, TESTIMONIALS_QUERY, TestimonialData } from '../lib/hygraph';
 
 // List of all uploaded images
 const testimonialImages = [
@@ -12,15 +13,11 @@ const testimonialImages = [
   "5.webp", "6.webp", "7.webp", "8.webp", "9.webp"
 ];
 
-// Split images into 2 rows for the marquee
-const midPoint = Math.ceil(testimonialImages.length / 2);
-const row1 = testimonialImages.slice(0, midPoint);
-const row2 = testimonialImages.slice(midPoint);
-
-const MarqueeRow: React.FC<{ images: string[]; direction?: 'left' | 'right'; speed?: number }> = ({
+const MarqueeRow: React.FC<{ images: string[]; direction?: 'left' | 'right'; speed?: number; isExternal?: boolean }> = ({
   images,
   direction = 'left',
-  speed = 40
+  speed = 40,
+  isExternal = false
 }) => {
   return (
     <div className="relative flex overflow-hidden py-4 group">
@@ -35,7 +32,7 @@ const MarqueeRow: React.FC<{ images: string[]; direction?: 'left' | 'right'; spe
             className="relative flex-shrink-0 w-64 md:w-80 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 hover:z-10 cursor-pointer bg-white border border-gray-100"
           >
             <img
-              src={`/images/${img}`}
+              src={isExternal ? img : `/images/${img}`}
               alt="Depoimento de viajante"
               className="w-full h-auto object-contain"
               loading="lazy"
@@ -48,6 +45,33 @@ const MarqueeRow: React.FC<{ images: string[]; direction?: 'left' | 'right'; spe
 };
 
 const Testimonials: React.FC = () => {
+  const [testimonials, setTestimonials] = useState<TestimonialData[]>([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const data = await client.request<{ testimonials: TestimonialData[] }>(TESTIMONIALS_QUERY);
+        if (data.testimonials && data.testimonials.length > 0) {
+          setTestimonials(data.testimonials);
+        }
+      } catch (error) {
+        console.error('Error fetching testimonials:', error);
+      }
+    };
+    fetchData();
+  }, []);
+
+  // Filter out images that are already in our static list if we wanted, 
+  // but better to just use Hygraph if available, otherwise static.
+  const hasExternalData = testimonials.length > 0;
+  const displayImages = hasExternalData 
+    ? testimonials.map(t => t.image.url) 
+    : testimonialImages;
+
+  // Split images into 2 rows for the marquee
+  const midPoint = Math.ceil(displayImages.length / 2);
+  const row1 = displayImages.slice(0, midPoint);
+  const row2 = displayImages.slice(midPoint);
   return (
     <section id="depoimentos" className="py-20 lg:py-32 bg-gray-50 overflow-hidden">
       <style>{`
@@ -77,10 +101,10 @@ const Testimonials: React.FC = () => {
 
       <div className="flex flex-col gap-4">
         {/* Row 1 - Moves Left */}
-        <MarqueeRow images={row1} direction="left" speed={120} />
+        <MarqueeRow images={row1} direction="left" speed={120} isExternal={hasExternalData} />
 
         {/* Row 2 - Moves Right */}
-        <MarqueeRow images={row2} direction="right" speed={140} />
+        <MarqueeRow images={row2} direction="right" speed={140} isExternal={hasExternalData} />
       </div>
 
 

@@ -6,7 +6,7 @@ const About: React.FC = () => {
     <section id="sobre" className="py-20 lg:py-32 bg-white relative overflow-hidden">
       {/* Decorative background element */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-        <div className="absolute -top-24 -left-24 w-96 h-96 bg-[#623CEA]/5 rounded-full blur-3xl"></div>
+        <div className="absolute -top-24 -left-24 w-96 h-96 bg-[#246BCE]/5 rounded-full blur-3xl"></div>
         <div className="absolute top-1/2 -right-24 w-64 h-64 bg-[#F79824]/5 rounded-full blur-3xl"></div>
       </div>
 
@@ -16,7 +16,7 @@ const About: React.FC = () => {
           {/* Image Column */}
           <div className="w-full lg:w-5/12">
             <div className="relative group">
-              <div className="absolute inset-0 bg-[#623CEA] rounded-[2rem] rotate-3 transform transition-transform group-hover:rotate-6 opacity-20"></div>
+              <div className="absolute inset-0 bg-[#246BCE] rounded-[2rem] rotate-3 transform transition-transform group-hover:rotate-6 opacity-20"></div>
               <img
                 src="/images/20231015_170209-1-1536x2048.webp"
                 alt="Camila Flores"
@@ -43,9 +43,9 @@ const About: React.FC = () => {
 
           {/* Text Column */}
           <div className="w-full lg:w-7/12">
-            <span className="text-[#623CEA] font-semibold tracking-wider uppercase text-sm mb-2 block">Quem eu sou</span>
+            <span className="text-[#246BCE] font-semibold tracking-wider uppercase text-sm mb-2 block">Quem eu sou</span>
             <h2 className="text-4xl lg:text-5xl font-extrabold text-gray-900 mb-8 !leading-tight">
-              Oiê! Muito prazer, eu sou a <span className="text-[#623CEA]">Camila Flores</span>
+              Oiê! Muito prazer, eu sou a <span className="text-[#246BCE]">Camila Flores</span>
             </h2>
 
             <div className="space-y-6 text-lg text-gray-600 leading-relaxed">
@@ -73,7 +73,7 @@ const About: React.FC = () => {
             <div className="mt-10">
               <a
                 href="#planos"
-                className="inline-flex items-center justify-center bg-[#623CEA] text-white font-bold text-lg py-4 px-10 rounded-full hover:bg-[#502ec2] transition-all transform hover:scale-105 shadow-lg hover:shadow-[#623CEA]/30"
+                className="inline-flex items-center justify-center bg-[#246BCE] text-white font-bold text-lg py-4 px-10 rounded-full hover:bg-[#1D56A5] transition-all transform hover:scale-105 shadow-lg hover:shadow-[#246BCE]/30"
               >
                 Quero fazer parte
                 <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
