@@ -109,7 +109,7 @@ const HowItWorks: React.FC = () => {
       <section id="como-funciona" className="py-20 bg-gray-50">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900">Vantagens que só a nossa <span className="text-[#623CEA]">comunidade</span> oferece</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900">Vantagens que só a nossa <span className="text-[#246BCE]">comunidade</span> oferece</h2>
             <p className="max-w-2xl mx-auto text-lg text-gray-600 mt-4">
               Vamos muito além de simples alertas. Oferecemos um ecossistema completo para você viajar mais e melhor.
             </p>

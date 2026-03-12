@@ -67,7 +67,7 @@ const Features: React.FC = () => {
       <div className="container mx-auto px-6">
         <div className="text-left max-w-3xl mb-16">
           <h2 className="text-4xl lg:text-5xl font-extrabold text-gray-900 !leading-tight">
-            Vantagens que só a nossa <span className="text-[#623CEA]">comunidade</span> oferece
+            Vantagens que só a nossa <span className="text-[#246BCE]">comunidade</span> oferece
           </h2>
           <p className="text-lg text-gray-600 mt-4">
             Vamos muito além de simples alertas. Oferecemos um ecossistema completo para você viajar mais e melhor.
