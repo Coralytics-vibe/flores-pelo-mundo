@@ -59,12 +59,6 @@ const HowItWorks: React.FC = () => {
 
   const groups = [
     {
-      icon: <WhatsAppIcon className="w-10 h-10" />,
-      title: 'Avisos',
-      description: 'Aqui você fica sempre por dentro das transferências com bônus, compras bonificadas e tudo o que faz suas milhas se multiplicarem!',
-      videoId: 'C3Pm-Ub3U5o'
-    },
-    {
       icon: <PlaneIcon className="w-10 h-10" />,
       title: 'Alertas BSB',
       description: 'Receba promoções de passagens aéreas nacionais e internacionais saindo de Brasília.',
@@ -77,16 +71,22 @@ const HowItWorks: React.FC = () => {
       videoId: 'FBteGEBgW9w'
     },
     {
+      icon: <TagIcon className="w-10 h-10" />,
+      title: 'Balcão de Milhas',
+      description: 'Espaço exclusivo para os participantes comprarem passagens baratas, mesmo sem milhas, com rapidez e segurança.',
+      videoId: 'rfsguHGOMBk'
+    },
+    {
       icon: <UsersIcon className="w-10 h-10" />,
       title: 'Networking BSB',
       description: 'No maior grupo de networking de viajantes da nossa cidade você pode trocar dicas, tirar dúvidas e aprender muito sobre o universo das milhas e viagens.',
       videoId: 'Zt3IiYFMZfM'
     },
     {
-      icon: <TagIcon className="w-10 h-10" />,
-      title: 'Balcão de Milhas',
-      description: 'Espaço exclusivo para os participantes comprarem passagens baratas, mesmo sem milhas, com rapidez e segurança.',
-      videoId: 'rfsguHGOMBk'
+      icon: <WhatsAppIcon className="w-10 h-10" />,
+      title: 'Avisos',
+      description: 'Aqui você fica sempre por dentro das transferências com bônus, compras bonificadas e tudo o que faz suas milhas se multiplicarem!',
+      videoId: 'C3Pm-Ub3U5o'
     }
   ];
 

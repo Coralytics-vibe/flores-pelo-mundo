@@ -26,7 +26,6 @@ export const HERO_QUERY = gql`
 export const TESTIMONIALS_QUERY = gql`
   query GetTestimonials {
     testimonials {
-      name
       image {
         url
       }
@@ -43,6 +42,5 @@ export interface HeroData {
 }
 
 export interface TestimonialData {
-  name?: string;
   image: { url: string };
 }
