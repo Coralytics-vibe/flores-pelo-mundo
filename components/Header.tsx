@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { MenuIcon } from './icons/MenuIcon';
 import { XIcon } from './icons/XIcon';
 
@@ -50,7 +51,12 @@ const Header: React.FC = () => {
 
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/95 shadow-md backdrop-blur-sm' : 'bg-transparent'}`}>
+    <motion.header 
+      initial={{ y: -100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.5 }}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/95 shadow-md backdrop-blur-sm' : 'bg-transparent'}`}
+    >
       <div className="container mx-auto px-6 py-4 flex justify-between items-center">
         <a href="#" onClick={(e) => handleNavClick(e, '#')} className={`flex items-center gap-2 text-xl font-bold transition-colors ${isScrolled ? 'text-[#246BCE]' : 'text-white'}`}>
           <LogoIcon className="w-8 h-8" />
@@ -77,19 +83,28 @@ const Header: React.FC = () => {
       </div>
 
       {/* Mobile Menu */}
-      <div className={`md:hidden ${isOpen ? 'block' : 'hidden'} bg-white absolute top-full left-0 right-0 shadow-lg`}>
-        <div className="flex flex-col items-center space-y-4 p-6">
-          {navLinks.map((link) => (
-            <a key={link.href} href={link.href} onClick={(e) => { handleNavClick(e, link.href); setIsOpen(false); }} className="text-gray-600 hover:text-[#4BB3FD] transition-colors font-medium text-lg">
-              {link.text}
-            </a>
-          ))}
-          <a href="#problema" onClick={(e) => { handleNavClick(e, '#problema'); setIsOpen(false); }} className="w-full text-center bg-[#F79824] text-white font-bold py-3 px-6 rounded-full hover:bg-[#E88C1A] transition-all">
-            Saber mais
-          </a>
-        </div>
-      </div>
-    </header>
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div 
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            className={`md:hidden bg-white absolute top-full left-0 right-0 shadow-lg overflow-hidden`}
+          >
+            <div className="flex flex-col items-center space-y-4 p-6">
+              {navLinks.map((link) => (
+                <a key={link.href} href={link.href} onClick={(e) => { handleNavClick(e, link.href); setIsOpen(false); }} className="text-gray-600 hover:text-[#4BB3FD] transition-colors font-medium text-lg">
+                  {link.text}
+                </a>
+              ))}
+              <a href="#problema" onClick={(e) => { handleNavClick(e, '#problema'); setIsOpen(false); }} className="w-full text-center bg-[#F79824] text-white font-bold py-3 px-6 rounded-full hover:bg-[#E88C1A] transition-all">
+                Saber mais
+              </a>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.header>
   );
 };
 

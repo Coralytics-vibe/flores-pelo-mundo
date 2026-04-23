@@ -4,8 +4,10 @@ import Header from './components/Header';
 import Hero from './components/Hero';
 import Problem from './components/Problem';
 import Testimonials from './components/Testimonials';
+import IfYouGotHere from './components/IfYouGotHere';
 import Companies from './components/Companies';
 import HowItWorks from './components/HowItWorks';
+import Guarantee from './components/Guarantee';
 
 import Stats from './components/Stats';
 import Pricing from './components/Pricing';
@@ -22,8 +24,10 @@ const App: React.FC = () => {
         <Hero />
         <Problem />
         <Testimonials />
+        <IfYouGotHere />
         <Companies />
         <HowItWorks />
+        <Guarantee />
 
         <Stats />
         <Pricing />
