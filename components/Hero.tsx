@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 import { client, HERO_QUERY, HeroData } from '../lib/hygraph';
 
 const images = [
@@ -11,12 +12,19 @@ const images = [
 
 const Hero: React.FC = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [heroData, setHeroData] = useState<HeroData | null>(null);
+  const [heroData, setHeroData] = useState<HeroData | null>(() => {
+    // Try to load from cache to avoid flicker
+    if (typeof window !== 'undefined') {
+      const cached = localStorage.getItem('hero_data_cache');
+      return cached ? JSON.parse(cached) : null;
+    }
+    return null;
+  });
 
   const defaultHero = {
-    title: "Viaje muito mais,",
-    subtitle: "Receba diariamente as passagens mais baratas saindo de Brasília e São Paulo para o Brasil e o mundo, direto no seu WhatsApp.",
-    ctaText: "Saber mais",
+    title: "Descubra viagens,",
+    subtitle: "Pague utilizando milhas, gastando muito pouco.",
+    ctaText: "Veja agora como participar",
     ctaLink: "#problema",
     backgroundImages: images.map(src => ({ url: src }))
   };
@@ -26,7 +34,9 @@ const Hero: React.FC = () => {
       try {
         const data = await client.request<{ bannerHomes: HeroData[] }>(HERO_QUERY);
         if (data.bannerHomes && data.bannerHomes.length > 0) {
-          setHeroData(data.bannerHomes[0]);
+          const newHeroData = data.bannerHomes[0];
+          setHeroData(newHeroData);
+          localStorage.setItem('hero_data_cache', JSON.stringify(newHeroData));
         }
       } catch (error) {
         console.error('Error fetching hero data:', error);
@@ -63,26 +73,52 @@ const Hero: React.FC = () => {
         />
       ))}
 
-      <div className="absolute inset-0 bg-black/50"></div>
+      <div className="absolute inset-0 bg-black/70"></div>
 
-      <div className="relative z-10 container mx-auto px-6 text-center text-white">
-        <h1 className="text-5xl sm:text-6xl md:text-7xl font-extrabold leading-tight mb-4">
-          {displayData.title.split(',')[0]}, {' '}
-          <span
-            className="bg-[#F79824] text-white px-4 py-1 md:px-6 md:py-2 rounded-xl inline-block"
-          >
-            {displayData.title.split(',')[1]?.trim() || "Pagando Barato"}
-          </span>
-        </h1>
-        <p className="text-lg md:text-xl max-w-3xl mx-auto mb-8 text-gray-200">
-          {displayData.subtitle}
-        </p>
-        <a
-          href={displayData.ctaLink}
-          className="bg-[#F79824] text-white font-bold text-lg py-4 px-10 rounded-full hover:bg-[#E88C1A] transition-all transform hover:scale-105 shadow-lg hover:shadow-[#F79824]/50"
+      <div className="relative z-10 container mx-auto px-6 text-center text-white flex flex-col items-center justify-center pt-20">
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold leading-tight mb-4 max-w-5xl mx-auto tracking-tight"
         >
-          {displayData.ctaText}
-        </a>
+          Não é que as passagens <br className="hidden sm:block" /> saindo de Brasília estão caras.
+        </motion.h1>
+
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight mb-8 text-transparent bg-clip-text bg-gradient-to-r from-[#F79824] to-yellow-300 max-w-5xl mx-auto tracking-tight drop-shadow-sm pb-2"
+        >
+          É que você só vê quando <br className="hidden sm:block" /> as melhores oportunidades já passaram!
+        </motion.h2>
+
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 0.6 }}
+          className="text-lg md:text-xl lg:text-2xl max-w-4xl mx-auto mb-10 text-gray-200 font-medium leading-relaxed"
+        >
+          Quando você começa a ver as melhores passagens na hora certa, antes do preço subir, o jogo muda.
+        </motion.p>
+
+        <motion.a
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5, delay: 1 }}
+          href="#problema"
+          className="text-xl md:text-2xl lg:text-3xl font-bold text-white hover:text-[#F79824] transition-colors flex flex-col items-center gap-3 mt-4"
+        >
+          <span className="bg-black/30 px-6 py-3 rounded-full border border-white/10 backdrop-blur-sm">✈️ E É ISSO AQUI QUE ACONTECE!</span>
+          <motion.span
+            animate={{ y: [0, 10, 0] }}
+            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+            className="text-4xl lg:text-5xl mt-3"
+          >
+            👇🏼
+          </motion.span>
+        </motion.a>
       </div>
     </section>
   );

@@ -1,7 +1,9 @@
 
 import React from 'react';
+import { motion } from 'framer-motion';
 
 const About: React.FC = () => {
+// ... rest of the file with motion applied to columns
   return (
     <section id="sobre" className="py-20 lg:py-32 bg-white relative overflow-hidden">
       {/* Decorative background element */}
@@ -14,7 +16,13 @@ const About: React.FC = () => {
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
 
           {/* Image Column */}
-          <div className="w-full lg:w-5/12">
+          <motion.div 
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="w-full lg:w-5/12"
+          >
             <div className="relative group">
               <div className="absolute inset-0 bg-[#246BCE] rounded-[2rem] rotate-3 transform transition-transform group-hover:rotate-6 opacity-20"></div>
               <img
@@ -39,10 +47,16 @@ const About: React.FC = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Text Column */}
-          <div className="w-full lg:w-7/12">
+          <motion.div 
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="w-full lg:w-7/12"
+          >
             <span className="text-[#246BCE] font-semibold tracking-wider uppercase text-sm mb-2 block">Quem eu sou</span>
             <h2 className="text-4xl lg:text-5xl font-extrabold text-gray-900 mb-8 !leading-tight">
               Oiê! Muito prazer, eu sou a <span className="text-[#246BCE]">Camila Flores</span>
@@ -81,7 +95,7 @@ const About: React.FC = () => {
                 </svg>
               </a>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

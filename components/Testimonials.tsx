@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 import { client, TESTIMONIALS_QUERY, TestimonialData } from '../lib/hygraph';
-
 // List of all uploaded images
 const testimonialImages = [
   "11.webp", "12.webp", "13.webp", "14.webp", "15.webp",
@@ -45,7 +45,13 @@ const MarqueeRow: React.FC<{ images: string[]; direction?: 'left' | 'right'; spe
 };
 
 const Testimonials: React.FC = () => {
-  const [testimonials, setTestimonials] = useState<TestimonialData[]>([]);
+  const [testimonials, setTestimonials] = useState<TestimonialData[]>(() => {
+    if (typeof window !== 'undefined') {
+      const cached = localStorage.getItem('testimonials_cache');
+      return cached ? JSON.parse(cached) : [];
+    }
+    return [];
+  });
 
   useEffect(() => {
     const fetchData = async () => {
@@ -53,6 +59,7 @@ const Testimonials: React.FC = () => {
         const data = await client.request<{ testimonials: TestimonialData[] }>(TESTIMONIALS_QUERY);
         if (data.testimonials && data.testimonials.length > 0) {
           setTestimonials(data.testimonials);
+          localStorage.setItem('testimonials_cache', JSON.stringify(data.testimonials));
         }
       } catch (error) {
         console.error('Error fetching testimonials:', error);
@@ -88,7 +95,12 @@ const Testimonials: React.FC = () => {
       `}</style>
 
       <div className="container mx-auto px-6 mb-12">
-        <div className="text-center">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center"
+        >
           <span className="text-[#246BCE] font-semibold tracking-wider uppercase text-sm">Depoimentos dos membros</span>
           <h2 className="text-4xl lg:text-5xl font-extrabold text-gray-900 mt-2 !leading-tight">
             O que dizem nossos <span className="text-[#246BCE]">viajantes</span>
@@ -96,7 +108,7 @@ const Testimonials: React.FC = () => {
           <p className="mt-4 text-lg md:text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto">
             Junte-se a milhares de pessoas que já estão explorando o mundo com a gente.
           </p>
-        </div>
+        </motion.div>
       </div>
 
       <div className="flex flex-col gap-4">
@@ -107,6 +119,17 @@ const Testimonials: React.FC = () => {
         <MarqueeRow images={row2} direction="right" speed={140} isExternal={hasExternalData} />
       </div>
 
+      <div className="mt-12 text-center relative z-20 pb-8">
+        <motion.a 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          href="#planos" 
+          className="inline-block bg-[#F79824] text-white font-bold text-lg py-4 px-10 rounded-full hover:bg-[#E88C1A] transition-all transform hover:scale-105 shadow-lg"
+        >
+          Quero ver as oportunidades primeiro
+        </motion.a>
+      </div>
 
     </section>
   );

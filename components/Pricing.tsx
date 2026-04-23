@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { motion } from 'framer-motion';
 
 // Icons for the guarantee section
 const ShieldIcon: React.FC<{ className?: string }> = ({ className }) => (
@@ -20,39 +21,6 @@ const LockIcon: React.FC<{ className?: string }> = ({ className }) => (
   </svg>
 );
 
-const plans = [
-  {
-    name: "COMUNIDADE COMPLETA / ANUAL",
-    description: "ACESSO AOS 5 GRUPOS DA COMUNIDADE FPM POR UM ANO + GUIA COLABORATIVO DE VIAGENS!",
-    price: "41",
-    period: "12x",
-    fullPrice: "ou R$ 399 com desconto",
-    buttonText: "QUERO VIAJAR BARATO!",
-    href: "https://pay.herospark.com/assinatura-anual-comunidade-completa-flores-pelo-mundo-487261",
-    isPopular: true,
-  },
-  {
-    name: "COMUNIDADE COMPLETA / SEMESTRAL",
-    description: "ACESSO AOS 5 GRUPOS DA COMUNIDADE FPM POR 6 MESES + GUIA COLABORATIVO DE VIAGENS!",
-    price: "50",
-    period: "6x",
-    fullPrice: "ou R$ 267 com desconto",
-    buttonText: "QUERO VIAJAR BARATO!",
-    href: "https://pay.herospark.com/assinatura-semestral-comunidade-completa-flores-pelo-mundo-487265",
-    isPopular: false,
-  },
-  {
-    name: "PLANO BRASÍLIA / ANUAL",
-    description: "ACESSO SOMENTE AO GRUPO DE ALERTAS DE PASSAGENS COM MILHAS SAINDO DE BSB!",
-    price: "20",
-    period: "12X",
-    fullPrice: "ou R$ 199 com desconto",
-    buttonText: "QUERO VIAJAR BARATO!",
-    href: "https://pay.herospark.com/assinatura-anual-plano-brasilia-flores-pelo-mundo-487574",
-    isPopular: false,
-  },
-];
-
 const guarantees = [
   { icon: <ShieldIcon className="w-8 h-8" />, text: "Compra Segura" },
   { icon: <HeartIcon className="w-8 h-8" />, text: "Satisfação Garantida" },
@@ -61,67 +29,149 @@ const guarantees = [
 
 const Pricing: React.FC = () => {
   return (
-    <section id="planos" className="py-20 bg-[#EBF1FA]">
-      <div className="container mx-auto px-6">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-800">Planos de assinatura</h2>
-          <p className="text-lg text-gray-600 mt-4 max-w-2xl mx-auto">
-            Entrar no FPM é fácil, prático e seguro!
-          </p>
-        </div>
+    <section id="planos" className="py-24 bg-[#EBF1FA] overflow-hidden">
+      <div className="container mx-auto px-6 max-w-6xl">
+        
+        {/* Section 1: Comunidade Completa */}
+        <div className="mb-24">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6">Comunidade Completa</h2>
+            <p className="text-lg md:text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed">
+              Alertas BSB (nacional e internacional), SP (internacional), compra de passagens em dinheiro, networking e estratégias — <span className="font-bold text-[#246BCE]">tudo organizado em um só lugar</span>
+            </p>
+          </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto items-stretch pt-10">
-          {plans.map((plan, index) => (
-            <div
-              key={index}
-              className={`relative bg-[#246BCE] text-white rounded-xl shadow-lg p-8 flex flex-col h-full text-center transition-transform duration-300
-              ${plan.isPopular ? 'lg:scale-105 border-4 border-[#F79824]' : 'border-4 border-transparent'}`}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {/* Plano Anual - Comunidade */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              whileHover={{ y: -5 }}
+              className="relative bg-[#246BCE] text-white rounded-2xl shadow-2xl p-8 pt-12 text-center border-4 border-[#F79824]"
             >
-              {plan.isPopular && (
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#F79824] text-white text-sm font-bold px-4 py-1 rounded-full">
-                  MAIS POPULAR
-                </div>
-              )}
-
-              <div className="flex-grow flex flex-col">
-                <h3 className="text-lg font-extrabold tracking-wide">{plan.name}</h3>
-                <p className="mt-4 text-sm font-medium flex-grow min-h-[100px] flex items-center justify-center">{plan.description}</p>
-
-                <div className="mt-8 flex items-start justify-center">
-                  <span className="text-2xl font-semibold mt-2 mr-1">R$</span>
-                  <span className="text-6xl font-extrabold tracking-tight">{plan.price}</span>
-                  <span className="text-xl font-semibold mt-2 ml-1">/{plan.period}</span>
-                </div>
-                <p className="mt-2 text-sm text-gray-200">{plan.fullPrice}</p>
+              <div className="absolute top-0 left-0 bg-[#F79824] text-white text-xs font-black px-4 py-2 rounded-tl-xl rounded-br-xl transform -rotate-2">
+                MAIS VANTAJOSO
               </div>
-
-              <div className="mt-10">
-                <a
-                  href={plan.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block w-full text-center rounded-lg px-6 py-4 text-lg font-bold uppercase tracking-wider transition-colors duration-200 bg-[#1D56A5] hover:bg-[#164280]"
-                >
-                  {plan.buttonText}
-                </a>
+              <h3 className="text-2xl font-black mb-6 uppercase tracking-wider">Plano Anual</h3>
+              <div className="mb-6 flex flex-col items-center">
+                <div className="flex items-start">
+                  <span className="text-2xl font-bold mt-2 mr-1">R$</span>
+                  <span className="text-7xl font-black tracking-tighter">41</span>
+                  <span className="text-xl font-bold mt-4 ml-1">/12x</span>
+                </div>
+                <p className="text-blue-100 font-medium mt-2">ou R$ 399 com desconto</p>
               </div>
-            </div>
-          ))}
+              <a 
+                href="https://pay.herospark.com/assinatura-anual-comunidade-completa-flores-pelo-mundo-487261" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="block w-full bg-[#F79824] hover:bg-[#E88C1A] text-white font-black py-4 rounded-xl text-lg transition-all shadow-lg hover:shadow-orange-500/30"
+              >
+                QUERO ENTRAR AGORA
+              </a>
+            </motion.div>
+
+            {/* Plano Semestral - Comunidade */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              whileHover={{ y: -5 }}
+              className="bg-[#246BCE] text-white rounded-2xl shadow-xl p-8 pt-12 text-center border-4 border-transparent"
+            >
+              <h3 className="text-2xl font-black mb-6 uppercase tracking-wider">Plano Semestral</h3>
+              <div className="mb-6 flex flex-col items-center">
+                <div className="flex items-start">
+                  <span className="text-2xl font-bold mt-2 mr-1">R$</span>
+                  <span className="text-7xl font-black tracking-tighter">50</span>
+                  <span className="text-xl font-bold mt-4 ml-1">/6x</span>
+                </div>
+                <p className="text-blue-100 font-medium mt-2">ou R$ 267 com desconto</p>
+              </div>
+              <a 
+                href="https://pay.herospark.com/assinatura-semestral-comunidade-completa-flores-pelo-mundo-487265" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="block w-full bg-white/10 hover:bg-white/20 text-white font-black py-4 rounded-xl text-lg transition-all border-2 border-white/20"
+              >
+                QUERO ENTRAR AGORA
+              </a>
+            </motion.div>
+          </div>
         </div>
 
-        <div className="mt-20 text-center">
-          <p className="text-2xl font-semibold text-gray-800 max-w-3xl mx-auto">
-            Você está a um passo de nunca mais precisar procurar promoções de passagens!
+        {/* Separator */}
+        <div className="h-px bg-gray-300 w-full mb-24 opacity-50"></div>
+
+        {/* Section 2: Plano Brasília */}
+        <div className="mb-24">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6">Plano Brasília</h2>
+            <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
+              Só alertas de <span className="font-bold">passagens com milhas</span> saindo de Brasília <br className="hidden md:block" />
+              <span className="text-gray-500">(sem acesso à comunidade)</span>
+            </p>
+          </motion.div>
+
+          {/* Plano Anual - Brasília */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            whileHover={{ y: -5 }}
+            className="max-w-md mx-auto bg-[#246BCE] text-white rounded-2xl shadow-xl p-8 pt-12 text-center border-4 border-transparent"
+          >
+            <h3 className="text-2xl font-black mb-6 uppercase tracking-wider">Plano Anual</h3>
+            <div className="mb-6 flex flex-col items-center">
+              <div className="flex items-start">
+                <span className="text-2xl font-bold mt-2 mr-1">R$</span>
+                <span className="text-7xl font-black tracking-tighter">20</span>
+                <span className="text-xl font-bold mt-4 ml-1">/12x</span>
+              </div>
+              <p className="text-blue-100 font-medium mt-2">ou R$ 199 com desconto</p>
+            </div>
+            <a 
+              href="https://pay.herospark.com/assinatura-anual-plano-brasilia-flores-pelo-mundo-487574" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="block w-full bg-white/10 hover:bg-white/20 text-white font-black py-4 rounded-xl text-lg transition-all border-2 border-white/20"
+            >
+              QUERO SÓ OS ALERTAS
+            </a>
+          </motion.div>
+        </div>
+
+        {/* Footer Text */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mt-32"
+        >
+          <p className="text-2xl md:text-3xl font-extrabold text-gray-900 max-w-4xl mx-auto leading-tight">
+            Você está a um passo de receber as melhores oportunidades na hora certa, antes do preço subir.
           </p>
-          <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16 mt-8 text-[#246BCE]">
+          <div className="flex flex-wrap justify-center gap-8 md:gap-16 mt-12 text-[#246BCE]">
             {guarantees.map((item, index) => (
               <div key={index} className="flex items-center gap-3">
                 {item.icon}
-                <span className="font-bold text-gray-700">{item.text}</span>
+                <span className="font-black text-gray-700 tracking-wide uppercase text-sm">{item.text}</span>
               </div>
             ))}
           </div>
-        </div>
+        </motion.div>
+
       </div>
     </section>
   );
